@@ -198,22 +198,44 @@
   		totalScores: []
 
   	}
-  	newPerson = $("#name").val().trim();
+  	newPerson.name = $("#name").val().trim();
   	newPerson.photo = $("#photo").val().trim();
-  	scores[0] = $("#q1").val().trim();
-  	scores[1] = $("#q2").val().trim()
-  	scores[2] = $("#q3").val().trim()
-  	scores[3] = $("#q4").val().trim()
-  	scores[4] = $("#q5").val().trim()
-  	scores[5] = $("#q6").val().trim()
-  	scores[6] = $("#q7").val().trim()
-  	scores[7] = $("#q8").val().trim()
-  	scores[8] = $("#q9").val().trim()
-  	scores[9] = $("#q10").val().trim()
+  	newPerson.scores[0] = $("#q1").val().trim();
+  	newPerson.scores[1] = $("#q2").val().trim()
+  	newPerson.scores[2] = $("#q3").val().trim()
+  	newPerson.scores[3] = $("#q4").val().trim()
+  	newPerson.scores[4] = $("#q5").val().trim()
+  	newPerson.scores[5] = $("#q6").val().trim()
+  	newPerson.scores[6] = $("#q7").val().trim()
+  	newPerson.scores[7] = $("#q8").val().trim()
+  	newPerson.scores[8] = $("#q9").val().trim()
+  	newPerson.scores[9] = $("#q10").val().trim()
   	for ( var i=0 ; i<scores.length ; i++){
   		totalScores = totalScores + scores[i];
   	}
+  	console.log(newPerson);
+  	console.log(totalScores);
+  	$.post("/api/friends" , newPerson , function(data){
+  		if(data){
+  			alert("All your answers were received. We are looking for your best match")
+  		}
+  		else{
+  			alert("Sorry! Something went wrong!")
+  		}
 
+  	newPerson.name = $("#name").val("");
+  	newPerson.photo = $("#photo").val("");
+  	newPerson.scores[0] = $("#q1").val("");
+  	newPerson.scores[1] = $("#q2").val("");
+  	newPerson.scores[2] = $("#q3").val("");
+  	newPerson.scores[3] = $("#q4").val("");
+  	newPerson.scores[4] = $("#q5").val("");
+  	newPerson.scores[5] = $("#q6").val("");
+  	newPerson.scores[6] = $("#q7").val("");
+  	newPerson.scores[7] = $("#q8").val("");
+  	newPerson.scores[8] = $("#q9").val("");
+  	newPerson.scores[9] = $("#q10").val("");
+  	})
   		
   	});
   
