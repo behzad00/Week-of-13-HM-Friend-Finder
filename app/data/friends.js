@@ -13,8 +13,8 @@ var friendsArray = [
 		3,
 		4,
 		5
-	],
-	 // totalScores: friendsArray[0].scores.reduce(function(a ,b){return a+b}, 0)
+	]
+	 
 
 }
 ];

@@ -5,6 +5,7 @@ module.exports = function(app){
 //When user visits a page the user is shown an HTML page of content
 //================================================
 app.get("/survey" , function(req , res){
+	console.log(path.join(__dirname, "/../public/survey.html"));
 	res.sendFile(path.join(__dirname, "/../public/survey.html"));
 });
 

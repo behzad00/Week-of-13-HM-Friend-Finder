@@ -188,7 +188,7 @@
 	</div>
 
   <script type="text/javascript">
-  $(".submit").on("click", function(event){
+  $("#submit").on("click", function(event){
   	event.preventDefault();
   	
   	var newPerson = {
@@ -210,8 +210,10 @@
   	newPerson.scores[7] = $("#q8").val().trim()
   	newPerson.scores[8] = $("#q9").val().trim()
   	newPerson.scores[9] = $("#q10").val().trim()
-  	for ( var i=0 ; i<scores.length ; i++){
-  		totalScores = totalScores + scores[i];
+  	console.log(newPerson)
+  	var totalScores = 0 ;
+  	for ( var i=0 ; i< newPerson.scores.length ; i++){
+  		totalScores = totalScores + newPerson.scores[i];
   	}
   	console.log(newPerson);
   	console.log(totalScores);
@@ -237,6 +239,21 @@
   	newPerson.scores[9] = $("#q10").val("");
   	})
   		
+  	function findMatch(){
+  		var currentURL = window.location.origin;
+
+  		$.ajax({ url : currentURL + "/api/friends" , method: "GET"})
+  		.done(function(friendsData){
+  			console.log("-----------------------------");
+  			console.log("URL: " +currentURL + "/api/friends");
+  			console.log("------------------------------------");
+  			console.log(friendsData);
+  			for (var i=0 ; i< friendsData.length; i++){
+
+  			}
+  		})
+
+  	}	
   	});
   
 
